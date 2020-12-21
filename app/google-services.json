@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "180708522910",
+    "firebase_url": "https://realtime-firebase-d275b-default-rtdb.firebaseio.com",
+    "project_id": "realtime-firebase-d275b",
+    "storage_bucket": "realtime-firebase-d275b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180708522910:android:81f427e75c4213f620b48f",
+        "android_client_info": {
+          "package_name": "com.letuse.realtimedatabaselogincruddataandimage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "180708522910-vlm8s6hf64gplcuqhdmtst13mnqonp8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw075TlAKCNEwUx7qC7nZ2kM5_3PF6LeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "180708522910-vlm8s6hf64gplcuqhdmtst13mnqonp8v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
