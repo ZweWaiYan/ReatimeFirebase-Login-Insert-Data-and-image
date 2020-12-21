@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class DataFragment : Fragment() {
+
     private var user: FirebaseUser? = null
 
     private var dbReference: DatabaseReference? = null
@@ -35,15 +36,12 @@ class DataFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         dbReference = FirebaseDatabase.getInstance().getReference("users")
         user = FirebaseAuth.getInstance().currentUser
 
         btn_send.setOnClickListener {
-            var body = edt_body.text.toString()
-
-            createUser(body)
-
-            edt_body.setText("")
+            findNavController().navigate(DataFragmentDirections.actionDataFragmentToAddDataFragment())
         }
 
         val query = dbReference!!.child(user!!.uid).child("Data").limitToLast(8)
@@ -92,7 +90,8 @@ class DataFragment : Fragment() {
                             model.author.toString(),
                             model.body.toString(),
                             model.time.toString(),
-                            model.key.toString()
+                            model.key.toString(),
+                            model.itemImageUrl.toString()
                         )
                     )
                 }
@@ -117,21 +116,5 @@ class DataFragment : Fragment() {
         mAdapter!!.stopListening()
     }
 
-    private fun createUser(body: String) {
 
-        var key = dbReference!!.child(user!!.uid).child("Data").push().key.toString()
-
-        val time = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().time)
-        val message = Message(getUsernameFromEmail(user!!.email), body, time, key)
-
-        dbReference!!.child(user!!.uid).child("Data").child(key).setValue(message)
-    }
-
-    private fun getUsernameFromEmail(email: String?): String {
-        return if (email!!.contains("@")) {
-            email.split("@".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[0]
-        } else {
-            email
-        }
-    }
 }

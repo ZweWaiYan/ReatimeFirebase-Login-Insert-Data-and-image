@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_dataFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_dataFragment_to_addDataFragment"
+            app:destination="@id/addDataFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -31,5 +34,20 @@
         <argument
             android:name="key"
             app:argType="string" />
+        <argument
+            android:name="imgUrl"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detailFragment_to_dataFragment2"
+            app:destination="@id/dataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addDataFragment"
+        android:name="com.letuse.realtimedatabaselogincruddataandimage.AddDataFragment"
+        android:label="fragment_add_data"
+        tools:layout="@layout/fragment_add_data" >
+        <action
+            android:id="@+id/action_addDataFragment_to_dataFragment"
+            app:destination="@id/dataFragment" />
     </fragment>
 </navigation>
